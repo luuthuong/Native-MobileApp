@@ -1,18 +1,32 @@
-import {ImageBackground, StyleSheet, Text, View} from 'react-native';
-import React, {Component} from 'react';
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+} from 'react-native';
+import React, {Component, useState} from 'react';
 import {styles} from './../styles/style';
+import SignIn  from './SignIn';
+import { image } from '../data/data';
 
-const image = {uri: 'https://images.pexels.com/photos/1061623/pexels-photo-1061623.jpeg?cs=srgb&dl=pexels-vlad-bagacian-1061623.jpg&fm=jpg'};
-export class Intro extends Component {
-  render() {
-    return (
-      <View style={styles.FullSrcreen}>
-        <ImageBackground style={styles.FullSrcreen} source={image} resizeMode="cover" >
-          <Text style={styles.text}>Inside</Text>
-        </ImageBackground>
-      </View>
-    );
-  }
-}
 
-export default Intro;
+const Intro = () => {
+  const [isLoading,setLoading]=useState(false);
+
+  return (
+    <View style={styles.FullSrcreen}>
+      <ImageBackground
+        style={styles.FullSrcreen}
+        source={image}
+        resizeMode="cover"
+        blurRadius={10}
+        >
+        {
+          isLoading?<ActivityIndicator size="large" color="#6DD5FA" />:<SignIn/>
+        }
+      </ImageBackground>
+    </View>
+  );
+};
+export default Intro

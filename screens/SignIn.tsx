@@ -1,14 +1,29 @@
-import { Text, View } from 'react-native'
-import React, { Component } from 'react'
+import {
+  Button,
+  SafeAreaView,
+  StatusBar,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import React, {Component, useState} from 'react';
+import FormCustom from '../components/FormCustom';
 
-export class SignIn extends Component {
-  render() {
-    return (
-      <View>
-        <Text>SignIn</Text>
-      </View>
-    )
-  }
+function SignIn() {
+  const [show, setShow] = useState(true);
+  return (
+    <SafeAreaView>
+      <StatusBar animated={true} hidden={show} showHideTransition="slide" />
+      <Button
+        onPress={() => {
+          console.log(show);
+          setShow(!show);
+        }}
+        title={show ? 'show' : 'hide'}
+      />
+      <FormCustom/>
+    </SafeAreaView>
+  );
 }
 
-export default SignIn
+export default SignIn;
