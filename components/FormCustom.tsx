@@ -5,7 +5,6 @@ import {
   View,
   KeyboardAvoidingView,
   StyleSheet,
-  TouchableHighlightBase,
   TouchableHighlight,
   Text,
 } from 'react-native';
@@ -27,9 +26,7 @@ function FormCustom(props: {
               <TextInput style={Formstyles.Input} key={id} placeholder={item} />
             );
           })}
-        <TouchableHighlight onPress={props.action} style={Formstyles.Button}>
-          <Text style={styles.TextCenter}>{props.title}</Text>
-        </TouchableHighlight>
+        
         {props.children}
       </View>
     </KeyboardAvoidingView>
@@ -37,7 +34,6 @@ function FormCustom(props: {
 }
 
 export default FormCustom;
-
 const Formstyles = StyleSheet.create({
   Input: {
     width: '100%',
@@ -47,22 +43,11 @@ const Formstyles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     paddingHorizontal: 10,
-    // alignItems:'center'
   },
-  Button: {
-    backgroundColor: '#1f4037',
-    paddingVertical: 10,
-    marginTop: 10,
+  Header: {
+    textAlign: 'center',
+    fontSize: 30,
+    color: '#203A43',
+    fontWeight: '900',
   },
-  ButtonPrimary: {
-    backgroundColor: '#0F2027',
-    paddingVertical: 10,
-    marginTop: 10,
-  },
-  Header:{
-    textAlign:'center',
-    fontSize:30,
-    color:'#203A43',
-    fontWeight:'900'
-  }
 });

@@ -7,14 +7,20 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   FullSrcreen: {
-    width:Dimensions.get('screen').width,
-    height:Dimensions.get('screen').height,
-    display: 'flex',
+    width: Dimensions.get('screen').width,
+    height: Dimensions.get('screen').height,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  TextCenter:{
-    textAlign:'center',
-    color:'#fff'
+  TextCenter: {
+    textAlign: 'center',
+    color: '#fff',
+  },
+  Button: {
+    backgroundColor: '#0F2027',
+    paddingVertical: 10,
+    marginTop: 10,
+    fontWeight:'600',
+    borderRadius:5
   },
 });
