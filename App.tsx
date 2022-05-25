@@ -1,8 +1,6 @@
 import React from 'react';
-import {SafeAreaView, Button} from 'react-native';
-import SignIn from './screens/SignIn';
+import {SafeAreaView} from 'react-native';
 import Intro  from './screens/Intro';
-
 const App = () => {
   return (
     <SafeAreaView>
