@@ -1,15 +1,51 @@
 import React from 'react';
-import {TextInput, View} from 'react-native';
-import {FormContent} from '../data/data';
+import {
+  Button,
+  TextInput,
+  View,
+  KeyboardAvoidingView,
+  StyleSheet,
+  TouchableHighlightBase,
+  TouchableHighlight,
+  Text
+} from 'react-native';
+import {styles} from '../styles/style';
 
-function FormCustom() {
+function FormCustom(props: {title: string; action: any; data: any}) {
   return (
-    <View>
-      {FormContent.signUp.map((item, id) => {
-        return <TextInput key={id} placeholder={item} />;
-      })}
-    </View>
+    <KeyboardAvoidingView style={Formstyles.Container} behavior="padding">
+      <View>
+        {props.data &&
+          props.data.map((item, id) => {
+            return (
+              <TextInput style={Formstyles.Input} key={id} placeholder={item} />
+            );
+          })}
+        <TouchableHighlight>
+          <Text style={Formstyles.TextCenter}>{props.title}</Text>
+        </TouchableHighlight>
+      </View>
+    </KeyboardAvoidingView>
   );
 }
 
 export default FormCustom;
+
+const Formstyles = StyleSheet.create({
+  Input: {
+    width: '100%',
+  },
+  Container: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+    // alignItems:'center'
+  },
+  TextCenter:{
+    textAlign:'center',
+  },
+  Button:{
+
+  }
+})

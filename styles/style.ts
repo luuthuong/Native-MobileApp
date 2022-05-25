@@ -9,7 +9,6 @@ export const styles = StyleSheet.create({
   FullSrcreen: {
     width:Dimensions.get('screen').width,
     height:Dimensions.get('screen').height,
-    backgroundColor:'#23cd',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

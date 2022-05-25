@@ -8,20 +8,19 @@ import {
 } from 'react-native';
 import React, {Component, useState} from 'react';
 import FormCustom from '../components/FormCustom';
+import {styles} from '../styles/style';
+import {FormContent} from '../data/data';
 
 function SignIn() {
-  const [show, setShow] = useState(true);
   return (
-    <SafeAreaView>
-      <StatusBar animated={true} hidden={show} showHideTransition="slide" />
-      <Button
-        onPress={() => {
-          console.log(show);
-          setShow(!show);
+    <SafeAreaView style={styles.FullSrcreen}>
+      <FormCustom
+        Action={() => {
+          console.log('action');
         }}
-        title={show ? 'show' : 'hide'}
+        title="Sign Up"
+        data={FormContent.signUp}
       />
-      <FormCustom/>
     </SafeAreaView>
   );
 }
