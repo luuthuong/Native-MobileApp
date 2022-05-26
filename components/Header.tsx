@@ -1,20 +1,20 @@
 import React from 'react';
-import {Image, SafeAreaView, Text, View, StyleSheet} from 'react-native';
+import {Image, SafeAreaView, Text, View, StyleSheet, TouchableHighlightBase, TouchableHighlight} from 'react-native';
+import Popup from './Popup';
+import FadeAnimation from './FadeAnimated';
 
-function Header() {
+function Header({action}) {
   return (
     <SafeAreaView style={headerStyle.Header}>
-      <View>
+        <View onTouchEnd={()=>action(prev=>!prev)} style={headerStyle.Absolute}>
         <Image
           style={headerStyle.styleAvatar}
           source={require('../assets/avatar.jpg')}
         />
-      </View>
-
+        </View>
     </SafeAreaView>
   );
 }
-
 const headerStyle = StyleSheet.create({
   styleAvatar: {
     resizeMode: 'cover',
@@ -23,9 +23,16 @@ const headerStyle = StyleSheet.create({
     borderRadius: 50,
   },
   Header:{
-      height:'auto',
-      paddingVertical:5,
-      backgroundColor:'#093028'
-  }
+      height:60,
+      backgroundColor:'#093028',
+      position:'relative',
+      justifyContent:'center'
+  },
+  Absolute:{
+    position:'absolute',
+    right:5,
+    borderRadius:50,
+  },
+
 });
 export default Header;

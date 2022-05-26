@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
   Button,
 } from 'react-native';
-import React, {Component, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {styles} from './../styles/style';
 import SignIn from './SignIn';
 import SignUp from './SignUp';

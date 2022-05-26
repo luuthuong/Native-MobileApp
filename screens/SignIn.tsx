@@ -1,10 +1,6 @@
 import {
-  Button,
   SafeAreaView,
-  StatusBar,
-  StyleSheet,
   Text,
-  TextInput,
   TouchableHighlight,
   View,
 } from 'react-native';
@@ -12,8 +8,9 @@ import React, {Component, useState} from 'react';
 import FormCustom from '../components/FormCustom';
 import {styles} from '../styles/style';
 import {FormContent} from '../data/data';
+import { inject ,observer} from 'mobx-react';
 
-function SignIn({action, nav}) {
+function SignIn({action, nav,store}) {
   return (
     <SafeAreaView style={styles.FullSrcreen}>
       <FormCustom
@@ -38,4 +35,4 @@ function SignIn({action, nav}) {
     </SafeAreaView>
   );
 }
-export default SignIn;
+export default inject('store')(observer(SignIn)) ;

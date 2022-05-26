@@ -1,3 +1,4 @@
+import { inject, observer } from 'mobx-react';
 import React from 'react';
 import {
   Button,
@@ -15,7 +16,10 @@ function FormCustom(props: {
   action: any;
   data: any;
   children: any;
+  store:any
 }) {
+
+  const user=props.store.user
   return (
     <KeyboardAvoidingView style={Formstyles.Container} behavior="padding">
       <Text style={Formstyles.Header}>{props.title.toUpperCase()}</Text>
@@ -23,7 +27,7 @@ function FormCustom(props: {
         {props.data &&
           props.data.map((item, id) => {
             return (
-              <TextInput style={Formstyles.Input} key={id} placeholder={item} />
+              <TextInput onChange={()=>console.log(user)} style={Formstyles.Input} key={id} placeholder={item} />
             );
           })}
         
@@ -33,7 +37,7 @@ function FormCustom(props: {
   );
 }
 
-export default FormCustom;
+export default inject('store')(observer(FormCustom)) ;
 const Formstyles = StyleSheet.create({
   Input: {
     width: '100%',

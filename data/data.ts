@@ -7,3 +7,18 @@ export const FormContent = {
   signIn: ['User name', 'Password'],
   signUp: ['User name', 'Password', 'Your Name', 'Email'],
 };
+
+export const PopupContent=[
+  {
+    title:'Overview',
+    path:'overview'
+  },
+  {
+    title:'Edit Profile',
+    path:'edit'
+  },
+  {
+    title:'Sign Out',
+    path:'/'
+  },
+]
