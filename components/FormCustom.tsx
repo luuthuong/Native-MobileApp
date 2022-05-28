@@ -6,31 +6,25 @@ import {
   View,
   KeyboardAvoidingView,
   StyleSheet,
-  TouchableHighlight,
   Text,
 } from 'react-native';
-import {styles} from '../styles/style';
-
 function FormCustom(props: {
   title: string;
-  action: any;
   data: any;
   children: any;
-  store:any
 }) {
-
-  const user=props.store.user
   return (
     <KeyboardAvoidingView style={Formstyles.Container} behavior="padding">
       <Text style={Formstyles.Header}>{props.title.toUpperCase()}</Text>
       <View>
         {props.data &&
-          props.data.map((item, id) => {
+          props.data.map((item:any, id:number) => {
             return (
-              <TextInput onChange={()=>console.log(user)} style={Formstyles.Input} key={id} placeholder={item} />
+              <TextInput onChangeText={text=>{
+                item.action(text)
+              }} style={Formstyles.Input} key={id} placeholder={item.title} />
             );
           })}
-        
         {props.children}
       </View>
     </KeyboardAvoidingView>

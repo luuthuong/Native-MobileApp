@@ -1,20 +1,25 @@
 import { makeAutoObservable } from "mobx";
 
-class Store{
-    user:any ={
-        name:'',
-        password:'',
+class Store {
+    user: any = {
+        "username": '',
+        "password": '',
     }
-    constructor(){
+    newUser:any={
+        "username":'',
+        "password":'',
+        'email':''
+    }
+    information:any={
+        fullname:'',
+        birthday:'',
+        age:0,
+        skill:[],
+        position:''
+    }
+    constructor() {
         makeAutoObservable(this)
     }
-    setSignin(username:string,pass:string){
-        user={
-           ...this.user,
-           name:username,
-           pass:pass
-       }
-    }
 }
-const store=new Store()
+const store = new Store()
 export default store;

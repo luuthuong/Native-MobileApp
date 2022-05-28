@@ -3,10 +3,10 @@ import {Image, SafeAreaView, Text, View, StyleSheet, TouchableHighlightBase, Tou
 import Popup from './Popup';
 import FadeAnimation from './FadeAnimated';
 
-function Header({action}) {
+function Header(props:any): JSX.Element {
   return (
     <SafeAreaView style={headerStyle.Header}>
-        <View onTouchEnd={()=>action(prev=>!prev)} style={headerStyle.Absolute}>
+        <View onTouchEnd={()=>props.action((prev:any)=>!prev)} style={headerStyle.Absolute}>
         <Image
           style={headerStyle.styleAvatar}
           source={require('../assets/avatar.jpg')}

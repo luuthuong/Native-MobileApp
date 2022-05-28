@@ -1,10 +1,7 @@
 import {
-  Text,
-  View,
+  Button,
   SafeAreaView,
-  Image,
   ScrollView,
-  DrawerLayoutAndroid,
   StyleSheet,
   TouchableNativeFeedback,
 } from 'react-native';
@@ -12,45 +9,28 @@ import React, {useRef, useState} from 'react';
 import Header from './../components/Header';
 import Popup from './../components/Popup';
 import Body from '../components/Body';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const navigationView = () => {
-  return (
-    <SafeAreaView>
-      <Text>123</Text>
-    </SafeAreaView>
-  );
-};
-
-function Profile() {
-  const drawer = useRef(null);
+function Home({navigation}:any) {
   const [active, setActive] = useState(false);
-
+  const Stack = createNativeStackNavigator();
   return (
-    <SafeAreaView
-      style={{
-        width: '100%',
-        height: '100%',
-      }}>
-        <TouchableNativeFeedback  onPress={()=>{
-          setActive(false)
+    <SafeAreaView style={{flex: 1}}>
+      <TouchableNativeFeedback
+        touchSoundDisabled={true}
+        onPress={() => {
+          setActive(false);
         }}>
-      <DrawerLayoutAndroid
-        ref={drawer}
-        drawerWidth={150}
-        drawerPosition="left"
-        renderNavigationView={navigationView}
-        >
-          <ScrollView >
+        <ScrollView>
           <Header action={setActive} />
-          <Body/>
+          <Body style={{flex: 1}} />
         </ScrollView>
-        {active && <Popup  style={styleProfile.Popup} />}
-      </DrawerLayoutAndroid>
-        </TouchableNativeFeedback>
+      </TouchableNativeFeedback>
+      {active && <Popup navigation={navigation} style={styleHome.Popup} />}
     </SafeAreaView>
   );
 }
-const styleProfile = StyleSheet.create({
+const styleHome = StyleSheet.create({
   Popup: {
     position: 'absolute',
     top: 60,
@@ -68,4 +48,4 @@ const styleProfile = StyleSheet.create({
     elevation: 10,
   },
 });
-export default Profile;
+export default Home;
