@@ -4,7 +4,8 @@ const router=require('express').Router();
 
 router.post('/',UserController.postUser);
 router.get('/',UserController.getUserAll);
-router.get('/:id',UserController.getUserOne);
+router.post('/usr',UserController.getUserOne);
+router.get('/:usr',UserController.checkUserExist)
 router.put('/:id',UserController.updateUser);
 router.delete('/',UserController.deleteUser);
 
